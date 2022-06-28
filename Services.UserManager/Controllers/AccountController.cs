@@ -90,15 +90,16 @@ namespace Services.UserManager.Controllers
                     user.UserName = user.Email;
 
                 AspNetUser LDAPUser;
-                if (user.IsApplication)
-                {
-                     LDAPUser = await _authService.LoginAppAsync(user.UserName, user.Password, Guid.Parse(user.ApplicationId));
-                }
-                else
-                {
-                    //iniciar sesiòn con directorio activo..
-                     LDAPUser = await _authService.LoginADAsync(user.UserName, user.Password, Guid.Parse(user.ApplicationId));
-                }
+                LDAPUser = await _authService.LoginAppAsync(user.UserName, user.Password, Guid.Parse(user.ApplicationId));
+                //if (user.IsApplication)
+                //{
+                //     LDAPUser = await _authService.LoginAppAsync(user.UserName, user.Password, Guid.Parse(user.ApplicationId));
+                //}
+                //else
+                //{
+                //    //iniciar sesiòn con directorio activo..
+                //     LDAPUser = await _authService.LoginADAsync(user.UserName, user.Password, Guid.Parse(user.ApplicationId));
+                //}
 
                 if (LDAPUser == null)
                     return BadRequest(new { message = "Señor Usuario Ocurrio un error, Es probable que sus credenciales no sean correctas. Intentelo de nuevo" });
