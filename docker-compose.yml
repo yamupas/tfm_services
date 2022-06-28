@@ -13,6 +13,8 @@ services:
     networks:
       - init_net
       - public_net
+    volumes:
+      - zmej_data:/usr/share/nginx/html
 
   serv_api_gateway:
     container_name: serv_api_gateway
@@ -63,8 +65,9 @@ services:
       ACCEPT_EULA: Y
       SA_PASSWORD: ftm2022.
       MSSQL_PID: Express
-   # volumes:
-   #   - ~/docker_backup/sqlserver-data:/var/opt/mssql
+    restart: unless-stopped
+    volumes:
+      - sqlserver-data:/var/opt/mssql
     networks:
       - init_net
 
@@ -75,3 +78,7 @@ networks:
     #internal: true
   public_net:
     driver: bridge
+
+volumes:
+  zmej_data:
+  sqlserver-data:
