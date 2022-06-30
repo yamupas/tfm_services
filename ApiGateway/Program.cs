@@ -20,8 +20,11 @@ namespace ApiGateway
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
                     webBuilder.UseUrls("http://*:9000");
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.ConfigureAppConfiguration(config =>
+                       config.AddJsonFile("configuration.json"));
                 });
     }
 }

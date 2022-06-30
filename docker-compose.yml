@@ -7,6 +7,7 @@ services:
     image: yamurillo/zmej_app
     ports:
       - 8089:81
+      - 8090:80      
     build:
       context: .
       dockerfile: Frontend/Dockerfile
@@ -23,7 +24,7 @@ services:
       - 9000:9000
     build:
       context: .
-      dockerfile: ApiGateway/Dockerfile
+      dockerfile: ApiGatewayZMEJ/Dockerfile
     networks:
       - init_net
       - public_net
@@ -45,7 +46,7 @@ services:
 
   serv_api_zmej:
     container_name: serv_api_zmej
-    image: yamurillo/apiidentity
+    image: yamurillo/serv_api_zmej
     ports:
       - 9005:9005
     build: 

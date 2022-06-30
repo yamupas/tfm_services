@@ -20,7 +20,10 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Ocelot.DependencyInjection;
-using Ocelot.Middleware;
+using Ocelot.Cache.CacheManager;
+
+
+
 using ApiGatewayZMEJ.Support;
 
 namespace ApiGateway
@@ -37,16 +40,17 @@ namespace ApiGateway
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
+            //services.AddCors();
             services.AddControllers();
             services.AddDevspaces();
             services.AddCustomAuthentication(Configuration);
             services.AddApplicationServices();
-            services.AddOcelot();
+            services.AddOcelot().AddCacheManager(settings => settings.WithDictionaryHandle());
+            //services.AddOcelot();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public async void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public  void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -72,12 +76,7 @@ namespace ApiGateway
             {
                 endpoints.MapControllers();
             });
-
-        
-
-           
-          
-            await app.UseOcelot();
+            app.UseOcelot().Wait();
         }
     }
     //
@@ -110,15 +109,15 @@ namespace ApiGateway
 
             return services;
         }
-        public static IServiceCollection AddCustomMvc(this IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddOptions();
-            services.Configure<UrlsConfig>(configuration.GetSection("urls"));
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+        //public static IServiceCollection AddCustomMvc(this IServiceCollection services, IConfiguration configuration)
+        //{
+        //    services.AddOptions();
+        //    services.Configure<UrlsConfig>(configuration.GetSection("urls"));
+        //    services.AddMvc()
+        //        .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
-            return services;
-        }
+        //    return services;
+        //}
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             //register delegating handlers
@@ -171,4 +170,5 @@ namespace ApiGateway
                 .CircuitBreakerAsync(5, TimeSpan.FromSeconds(30));
         }
     }
+
 }

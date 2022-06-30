@@ -5,8 +5,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9001
+          "Host": "locahost",
+          "Port": 53740
         }
       ],
       "UpstreamPathTemplate": "/identity.api/auth",
@@ -17,7 +17,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "locahost",
           "Port": 9001
         }
       ],
@@ -29,7 +29,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "locahost",
           "Port": 9001
         }
       ],
@@ -41,7 +41,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "locahost",
           "Port": 9001
         }
       ],
@@ -296,7 +296,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "serv_api_zmej",
           "Port": 9005
         }
       ],
@@ -312,7 +312,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "serv_api_zmej",
           "Port": 9005
         }
       ],
@@ -328,7 +328,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "serv_api_zmej",
           "Port": 9005
         }
       ],
@@ -345,7 +345,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "serv_api_zmej",
           "Port": 9005
         }
       ],
@@ -361,7 +361,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "serv_api_zmej",
           "Port": 9005
         }
       ],
@@ -377,7 +377,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "serv_api_zmej",
           "Port": 9005
         }
       ],
@@ -396,7 +396,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "serv_api_zmej",
           "Port": 9005
         }
       ],
@@ -412,7 +412,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "serv_api_zmej",
           "Port": 9005
         }
       ],
@@ -428,7 +428,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "serv_api_zmej",
           "Port": 9005
         }
       ],
@@ -438,45 +438,10 @@
         "AuthenticationProviderKey": "ApiSecurity",
         "AllowedScopes": []
       }
-    },
-    //maestras
-
-    {
-      "DownstreamPathTemplate": "/api/pets/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 9011
-        }
-      ],
-      "UpstreamPathTemplate": "/maestrassip.api/pets/{everything}",
-      "UpstreamHttpMethod": [ "GET" ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "ApiSecurity",
-        "AllowedScopes": []
-      }
     }
-
-    //{
-    //  "DownstreamPathTemplate": "/api/jobtitle",
-    //  "DownstreamScheme": "http",
-    //  "DownstreamHostAndPorts": [
-    //    {
-    //      "Host": "localhost",
-    //      "Port": 9002
-    //    }
-    //  ],
-
-    //  "UpstreamPathTemplate": "/HR.jobtitle.api",
-    //  "UpstreamHttpMethod": [ "Get" ],
-    //  "AuthenticationOptions": {
-    //    "AuthenticationProviderKey": "ApiSecurity",
-    //    "AllowedScopes": []
-    //  }
-    //}
+    
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:9000"
+    "BaseUrl": "http://serv_api_gateway:9000"
   }
 }

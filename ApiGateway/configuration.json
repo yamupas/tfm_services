@@ -5,8 +5,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "serv_api_identity",
-          "Port": 9001
+          "Host": "locahost",
+          "Port": 53740
         }
       ],
       "UpstreamPathTemplate": "/identity.api/auth",
@@ -17,7 +17,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "serv_api_identity",
+          "Host": "locahost",
           "Port": 9001
         }
       ],
@@ -29,7 +29,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "serv_api_identity",
+          "Host": "locahost",
           "Port": 9001
         }
       ],
@@ -41,7 +41,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "serv_api_identity",
+          "Host": "locahost",
           "Port": 9001
         }
       ],
